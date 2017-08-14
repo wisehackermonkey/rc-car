@@ -7,13 +7,14 @@
  
 #define RF95_FREQ 915.0
 
-#define LED 6
-#define ledDelay 50
+int LED  = 6;
+#define ledDelay 100
 
 RH_RF95 rf95(RFM95_CS, RFM95_INT);
  
 void setup() 
 {
+  pinMode(LED, OUTPUT);
   pinMode(RFM95_RST, OUTPUT);
   digitalWrite(RFM95_RST, HIGH);
  
@@ -62,11 +63,14 @@ void loop()
   
   Serial.println("Packet Server : Sending..."); delay(10);
   rf95.send((uint8_t *)radiopacket, 20);
- 
+  digitalWrite(LED, HIGH);
+  
+       delay(ledDelay);
   Serial.println("Packet Server : Waiting for packet to complete..."); delay(10);
   rf95.waitPacketSent();
   // wait for client reply
-
+  digitalWrite(LED, LOW);
+  
   uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
   uint8_t len = sizeof(buf);
  
@@ -77,17 +81,13 @@ void loop()
     if (rf95.recv(buf, &len))
    {
           
-    digitalWrite(LED, HIGH);
-    
-         delay(ledDelay);
+  
       Serial.println("Packet Server : Got reply");
       Serial.println((char*)buf);
       Serial.print("Packet Server : RSSI: ");
       Serial.println(rf95.lastRssi(), DEC);    
            
-     digitalWrite(LED, LOW);
-     
-          delay(ledDelay);
+  
     }
     else
     {
