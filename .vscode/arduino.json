@@ -1,0 +1,5 @@
+{
+    "port": "COM4",
+    "board": "arduino:avr:uno",
+    "sketch": "_2017_03_packet_radio_recever\\_2017_03_packet_radio_recever.ino"
+}
