@@ -1,4 +1,63 @@
 <!DOCTYPE html>
+<html>
+<head>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/p5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/addons/p5.dom.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        var text;		// variable for the text div you'll create
+        var slider ;
+        var socket = new WebSocket("ws://localhost:8081");
+        function setup() {
+            createCanvas(600, 600);
+            background(50);
+
+
+
+            slider = createSlider(0,180,0);
+            slider.position(20,20);
+
+            // The socket connection needs two event listeners:
+            socket.onopen = openSocket;
+            socket.onmessage = showData;
+            // make a new div and position it at 10, 10:
+            text = createDiv("Sensor reading:"  );
+            text.position(10,10);
+        }
+        function openSocket() {
+            text.html("Socket open");
+            socket.send("Hello server");
+        }
+        /*
+         showData(), below, will get called whenever there is new Data
+         from the server. So there's no need for a draw() function:
+         */
+        function showData(result) {
+            var resultString = result.data;
+
+            text.html("Sensor reading:" + resultString);
+            // split it:
+            var numbers = split(resultString, ",");  console.log(numbers);
+            // use the numbers:
+            text.position(100, int(numbers[1])    );
+            text.style("font-size", int(numbers[2]) + "%");
+            socket.send('servo1', slider.value());
+            socket.send('servo2', 200);
+        }
+    </script>
+</head>
+<body>
+<br>
+<br>
+<br>
+<p>Client For Arduino Serial!</p>
+</body>
+</html>
+
+
+
+<!--
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -200,4 +259,4 @@
 <button type="button" id="setip" >ip address</button>
 <p id="result">Result</p>
 </body>
-</html>
+</html>-->
