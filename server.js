@@ -37,7 +37,7 @@ arduino.on('open', function(){
 
         socket.on('slider', function (data) {
             if(data){
-                print(data.servo1 + ', ' +data.servo2);
+                print(data.servo1 + ', ' +data.servo2 + ', ' +data.servo3);
                 // if(data.servo1 > 90) {
                 //     arduino.write('1', function () {
                 //         print("LED : On");
@@ -47,15 +47,15 @@ arduino.on('open', function(){
                 //         print("LED : Off");
                 //     });
                 // }
-                arduino.write(data.servo1 + ',' + data.servo2 + '\n');
+                arduino.write(data.servo1 + ',' + data.servo2 + ', ' +data.servo3  +'\n');
             }
         });
     });
 
 });
 
-arduino.on('data',function () {
-   print("Serial Port : Receiving Data.")
+arduino.on('data',function (data) {
+   print("Serial Port : Receiving Data.",data)
 });
     arduino.on('close',function(){
     print("Serial Port : Closed.");
