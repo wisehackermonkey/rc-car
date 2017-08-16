@@ -1,0 +1,15 @@
+﻿added socket.io stuff
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   .idea/workspace.xml
+#	copied:     public/index.html -> dev/index.html
+#	modified:   public/index.html
+#	new file:   public/sketch.js
+#	new file:   server.js
+#
+
