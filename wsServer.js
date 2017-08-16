@@ -58,9 +58,9 @@ if (typeof delimiter === 'undefined') {
 
 // If the user didn't give a serial port name, exit the program:
 if (typeof portName === "undefined") {
-    console.log("You need to specify the serial port when you launch this script, like so:\n");
-    console.log("    node wsServer.js <portname>");
-    console.log("\n Fill in the name of your serial port in place of <portname> \n");
+    console.error("You need to specify the serial port when you launch this script, like so:\n");
+    console.error("    node server.js <portname>");
+    console.error("\n Fill in the name of your serial port in place of <portname> \n");
     process.exit(1);
 }
 // open the serial port:
