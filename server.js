@@ -31,7 +31,7 @@ var arduino = new SerialPort(portName, {                           // serial com
 
 arduino.on('open', function(){
     console.log('Serial Port : Open, Using Baud Rate : ' + arduino.options.baudRate);
-
+    console.log('Localhost:'+  port);
     io.on('connection', function (socket) {
         print("Client Connected");
 

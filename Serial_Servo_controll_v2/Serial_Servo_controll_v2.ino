@@ -20,7 +20,7 @@ Servo servo3;
 
 int servoPin1 = 9; 
 int servoPin2 = 10; 
-int servoPin3 = 6; 
+int servoPin3 = 11; 
 
 String inString = "";    // string to hold input
 
