@@ -2,7 +2,7 @@
  * Created by wisemonkey on 8/15/2017.
  */
 require('wise-helper');
-var express = require('express')
+var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
@@ -17,7 +17,8 @@ if (typeof portName === "undefined") {
     console.error("You need to specify the serial port when you launch this script, like so:\n");
     console.error("    node server.js <portname>");
     console.error("\n Fill in the name of your serial port in place of <portname> \n");
-    process.exit(1);
+    portName = '/dev/ttyACM0';
+    // process.exit(1);
 }
 
 
