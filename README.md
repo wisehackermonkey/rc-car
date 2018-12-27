@@ -13,7 +13,7 @@ github.com/wisehackermonkey
 ![RC car](https://i.imgur.com/MwdrfEm.jpg)
 ---
 #### Project Maintenance Status 
-> This project is not beeing maintained
+> This project is not being maintained
 
 
 
