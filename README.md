@@ -1,5 +1,5 @@
-# rc-car node server
-a node.js server app to control an arduino for my rc car robotics project.
+# `rc-car node server`
+##### a node.js server app to control an arduino for my rc car robotics project.
 ```
 wisemonkey
 oranbusiness@gmail.com
@@ -13,8 +13,4 @@ github.com/wisehackermonkey
 ![RC car](https://i.imgur.com/MwdrfEm.jpg)
 ---
 #### Project Maintenance Status 
-> This project is not being maintained
-
-
-
-
+- `This project is not being maintained`
